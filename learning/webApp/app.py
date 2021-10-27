@@ -15,10 +15,13 @@ def hello():
 
 @app.get("/showform")
 def display_form():
-    return render_template("form.html")
-@app.get("/home")
+    return render_template("form.html",the_title="give us your details")
+
+
+
+@app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html",the_title="welcome")
 
 
 @app.post("/processform")
