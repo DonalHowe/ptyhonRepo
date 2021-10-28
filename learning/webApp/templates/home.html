@@ -1,21 +1,22 @@
-<DOCTYPE html>
-<html>
-<head>
-<title>Welcome </title>
-
-</head>
-<body>
+{% extends "base.html"%}
+<title>Welcome</title>
+{%block body%}
 <h2>Home </h2>
 <p>
-Tell us about yourself
+Welcome to my home page this is where you will learn alot about me from what<br>
+my favourite games are to my cv and just general information about me
 </p>
 <p>
     <a href="/showform"> tell us</a>
+    <br>
+    <br>
+     <a href="/games"> my favourite games</a>
+     <br>
+     <br>
+    <a href="/interests"> my interests outside games</a>
+    <br>
+    <br>
+    <a href="/pd"> my personal details including pps number</a>
+     
 </p>
-</form>
-
-</body>
-
-
-
-</html>
+{%endblock%}
