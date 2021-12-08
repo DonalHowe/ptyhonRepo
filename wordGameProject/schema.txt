@@ -1,0 +1,25 @@
+
+TO CREATE THE DATA BASE
+show databases;
+create database wordGame;
+show databases;
+grant all on projectTwo.* to 'projectUser' identified by 'projectPassword';
+quit;
+
+
+ THIS WILL EDIT THE DATABASE FOR YOU :) YOU CAN ADD STUFF TO THE DATABASE
+mysql -u 'projectUser' -p projectTwo;
+show databases;
+
+create table player (
+    name varchar(69) not null,
+    score int,
+    date_played timestamp default current_timestamp,
+    players_browser varchar(69),
+    players_ip varchar(69),
+    players_words varchar(69),
+    word_given varchar(69) );
+
+describe player;
+
+insert into player(name, score, players_words, word_given) values ('Donal','863', 'Donal,Peter,Howe,Donal,Sean,Liam,Patrick', 'Creator');
