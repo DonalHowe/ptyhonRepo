@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2>{{ title }}</h2>
+    <p>
+       Your Word Is  <strong>{{ sourceWord }}</strong>.
+    </p>
+    <form action="/savescore" method="post">
+        <table>
+            <tr>
+                <td>
+                    Tinput your 7 words no more no less:
+                </td>
+                <td>
+                    <input type="text" name="player">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <input type="submit" value="finsh Game">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+
+{% endblock %}

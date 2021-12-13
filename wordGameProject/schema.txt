@@ -1,14 +1,15 @@
 
 TO CREATE THE DATA BASE
 show databases;
-create database wordGame;
+create database wordgame;
 show databases;
-grant all on projectTwo.* to 'projectUser' identified by 'projectPassword';
+grant all on wordgame.* to 'wordUser' identified by 'gamesDev';
 quit;
 
 
  THIS WILL EDIT THE DATABASE FOR YOU :) YOU CAN ADD STUFF TO THE DATABASE
-mysql -u 'projectUser' -p projectTwo;
+mysql -u wordUser -p wordgame
+gamesDev
 show databases;
 
 create table player (
@@ -18,8 +19,10 @@ create table player (
     players_browser varchar(69),
     players_ip varchar(69),
     players_words varchar(69),
-    word_given varchar(69) );
+    word_given varchar(69),
+    player_time float(2));
+	
 
 describe player;
 
-insert into player(name, score, players_words, word_given) values ('Donal','863', 'Donal,Peter,Howe,Donal,Sean,Liam,Patrick', 'Creator');
+insert into player(name, score, players_words, word_given,player_time) values ('Donal','863', 'Donal,Peter,Howe,Donal,Sean,Liam,Patrick', 'Creator','15.24');

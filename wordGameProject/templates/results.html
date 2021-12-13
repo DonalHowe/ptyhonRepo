@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+        <h2>{{ title }} </h2>
+        <p>
+            this is where you will be able to play the game hopefully
+            {{ name }} , your source word is {{ sourceWord }} 
+
+            <p>
+                Here are the top ten scores:
+                <table>
+                    {% for row in topten %}
+                         <tr>
+                             <td>
+                                {{ row }}
+                             </td>
+    
+                             
+                         </tr>
+                         {% endfor %}
+                </table>
+            </p>
+    
+        </p>
+
+{% endblock %}
