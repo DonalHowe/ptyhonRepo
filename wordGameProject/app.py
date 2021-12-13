@@ -53,7 +53,7 @@ def home_Page():
 @app.get("/game")
 def game():
     
-    ini_time_start = datetime.now()
+    timeTaken = datetime.now()
    ## ini_time_for_finished = datetime.now()
 
     ##ini_time_for_total = ini_time_for_finished - ini_time_start
@@ -65,7 +65,7 @@ def game():
         print(sourceWord)
     elif len(sourceWord)<3:
             print("error word is invalid")
-    guessedWords=["namel","jfb","jd","dsafjhssdafkj","namel","namel","namel","namel"]
+    guessedWords= ["namel","jfb","jd","dsafjhssdafkj","namel","namel","namel","namel"]
     for row in guessedWords:
         if len(row)<4:
            print("word is invalid" )
@@ -96,11 +96,9 @@ def game():
 
 
 
-
-
-    save_the_data(ini_time_start,guessedWords, sourceWord)
-    process_data(name , ini_time_start,guessedWords, sourceWord)
-    where, how_many, ordered= process_data(name , ini_time_start,guessedWords, sourceWord)
+    ##save_the_data(guessedWords, sourceWord)
+    ##process_data(name , ini_time_start,guessedWords, sourceWord)
+    ##where, how_many, ordered= process_data(name , ini_time_start,guessedWords, sourceWord)
     # gets the session value for the current browser.
     
 
@@ -109,10 +107,11 @@ def game():
         "game.html",
         title="lets  play",
         name=name,
-        time=ini_time_start,
-        position=where,
-        length=how_many,
-        topten=ordered[:10],
+        time=timeTaken,
+        source_word=sourceWord
+        ##position=where,
+        ##length=how_many,
+        ##topten=ordered[:10],
     )
     
 

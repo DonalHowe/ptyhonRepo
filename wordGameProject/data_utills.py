@@ -8,7 +8,7 @@ config ={
     'password' :'gamesDev'
 }
 
-def save_the_data(time_taken,guessedWords, sourceWord):
+def save_the_data(guessedWords, sourceWord):
     SQL = """
         insert into board
         (guessedWords, sourceWord)
@@ -16,10 +16,10 @@ def save_the_data(time_taken,guessedWords, sourceWord):
         (%s, %s)
     """
     with DBcm.UseDatabase(config) as db:
-        db.execute(SQL, (time_taken,guessedWords, sourceWord))
+        db.execute(SQL, (guessedWords, sourceWord))
 
 
-def process_data(name , time_taken,guessedWords, sourceWord):
+def process_data(name , timeTaken,guessedWords, sourceWord):
     with DBcm.UseDatabase(config) as db:
         SQL = """
             select guessedWord, SourceWord
@@ -28,7 +28,7 @@ def process_data(name , time_taken,guessedWords, sourceWord):
         """
         db.execute(SQL)
         scores = db.fetchall()
-    where = scores.index((name, time_taken,guessedWords, sourceWord)) + 1
+    where = scores.index((name, timeTaken,guessedWords, sourceWord)) + 1
     how_many = len(scores)
 
     return where, how_many, scores[:10]
