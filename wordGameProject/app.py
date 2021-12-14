@@ -43,6 +43,9 @@ RangeWords=len(bigWordData)
 smallRangeWords=len(smallWordData)
 sourceWord=bigWordData[random.randint(0,RangeWords)]
 
+guessedWords=""
+
+
 @app.get("/")
 @app.get("/home")
 def home_Page():
@@ -50,8 +53,10 @@ def home_Page():
         "home.html",title=" welcome to the home"
     )
     
-@app.get("/game")
-def game():
+
+    
+@app.post("/processGame")
+def processGame():
     
     timeTaken = datetime.now()
    ## ini_time_for_finished = datetime.now()
@@ -65,7 +70,8 @@ def game():
         print(sourceWord)
     elif len(sourceWord)<3:
             print("error word is invalid")
-    guessedWords= ["namel","jfb","jd","dsafjhssdafkj","namel","namel","namel","namel"]
+   
+    
     for row in guessedWords:
         if len(row)<4:
            print("word is invalid" )
@@ -79,7 +85,8 @@ def game():
             print("player word is not valid")
         ## mark current word as invalid 
     ## checks to see if the word is in the list of words
-
+    
+    
     if row in guessedWords:
         if smallWordData.count(row)==0:
                 print("word is invalid")
@@ -92,28 +99,67 @@ def game():
             print("please enter 7 words")
     else:
          print("prefect amount of words")
+    name = "john"
+    score= 2
+    ##date_played =120
+    players_browser=8347
+    players_ip=127
+    players_word=guessedWords
+    word_given=sourceWord   
+    playerTime=10.04 
 
 
 
-
-    ##save_the_data(guessedWords, sourceWord)
-    ##process_data(name , ini_time_start,guessedWords, sourceWord)
+    save_the_data(name,score,players_browser,players_ip,players_word, word_given,playerTime)
+   ## process_data(name , ini_time_start,guessedWords, sourceWord)
     ##where, how_many, ordered= process_data(name , ini_time_start,guessedWords, sourceWord)
     # gets the session value for the current browser.
     
-
+    
   
+    return render_template(
+        "results.html",
+        guessed_words=guessedWords,
+        name="john",
+        title="results"
+      
+    )
+@app.get("/game")
+def game():
+    
     return render_template(
         "game.html",
         title="lets  play",
         name=name,
-        time=timeTaken,
+       ## time=timeTaken,
         source_word=sourceWord
         ##position=where,
-        ##length=how_many,
-        ##topten=ordered[:10],
+       ## length=how_many,
+       ## topten=ordered[:10],
     )
     
+
+    
+@app.route('/processGame', methods=['POST'])
+def my_form_post():
+    guessedWords = request.form['seven_words']
+    return 
+    
+    
+    
+@app.post("/results")
+def results():
+    
+     return render_template(
+        "results.html",
+        guessed_words=guessedWords,
+        name="john",
+        title="results"
+      
+    )
+
+
+
 
 
 app.secret_key = "fhfho;dsi8 iergo;ireaj 90eru goerij 0re9uirae90eua gerg9eraugaer 9re"
