@@ -7,8 +7,8 @@
        Your Word Is  <strong>{{ source_word }}</strong>.
        <p>enter your 7 words in the box use a space please :)</p>
     </p>
-    <form action="/results">
-       
+    <form action="/processGame" method="post">
+      
        <input type ="text" required autofocus size="100" name="seven_words">
         <p>
             <input type="submit" id="finsihed" value="Done">

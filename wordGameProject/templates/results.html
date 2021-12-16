@@ -1,26 +1,22 @@
 {% extends 'base.html' %}
 {% block body %}
         <h2>{{ title }} </h2>
+        <h2> {{ ifCorrect }}</h2>
+        <h2> your time is {{ time }}</h2>
         <p>
-            this is where you will be able to play the game hopefully
-            {{ name }} , your source wordis {{  guessed_words }} 
+           
+           
+            {{ userName }} , your guessed words are <strong>{{  guessed_words }}</stron> 
 
-            <p>
-                Here are the top ten scores:
-                
-                  <!-- <table> {% for row in topten %}
-                         <tr>
-                             <td>
-                                {{ row }}
-                             </td>
-    
-                             
-                         </tr>
-                         {% endfor %}
-                </table>
-            -->
-            </p>
-    
+           
         </p>
+        <form action="/top10">
+       
+             <p>
+                 <input type="submit" id="finsihed" value="Done">
+             </p>
+     
+         </form>
+     
 
 {% endblock %}

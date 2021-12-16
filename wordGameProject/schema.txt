@@ -26,3 +26,15 @@ create table player (
 describe player;
 
 insert into player(name, score, players_words, word_given,player_time) values ('Donal','863', 'Donal,Peter,Howe,Donal,Sean,Liam,Patrick', 'Creator','15.24');
+
+create table userLogs ( 
+name varchar(69) not null,
+    score int,
+    date_played timestamp default current_timestamp,
+    players_browser varchar(128),
+    players_ip varchar(69),
+    players_words varchar(69),
+    word_given varchar(69),
+    player_time float(2));
+describe userLogs;
+insert into userLogs;(name, score, players_words, word_given,player_time) values ('Donal','863', 'Donal,Peter,Howe,Donal,Sean,Liam,Patrick', 'Creator','15.24');
