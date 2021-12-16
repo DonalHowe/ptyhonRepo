@@ -162,7 +162,9 @@ def results():
     else:
          if_correct="Congrats you have won"
          didPlayerWin=True
-
+    playerNamme=request.args.get("player_name")
+    print(playerNamme)
+    ##name=playerNamme
     save_the_logs(name, score, players_browser, players_ip, players_word, word_given, playerTime)
     if didPlayerWin==True:
         
@@ -204,10 +206,11 @@ def displayTable():
     database = []
     database = process_data()
     print(database)
-    
+  
     return render_template(
         "topTen.html",
-        data_base=database
+        data_base=database,
+      
         
     )
 
